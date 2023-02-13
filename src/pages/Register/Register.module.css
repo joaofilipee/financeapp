@@ -1,0 +1,170 @@
+
+
+
+/* Section */
+
+.register {
+
+    width: 70%;
+    height: 500px;
+
+    display: flex;
+    
+
+    border-radius: 20px;
+
+}
+
+#register {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: rgb(197, 192, 192);
+
+    height: 100vh;
+}
+
+.app_color {
+    color: #0ECA98;
+    font-size: 20px;
+}
+
+.my_form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    gap: 15px;
+
+}
+
+.my_form input {
+    width: 220px;
+    height: 25px;
+}
+
+
+.content {
+    width: 60%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 30px;
+
+    background-color: white;
+
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.content h1 {
+    color: #0ECA98;
+    font-weight: 400;
+    font-size: 30px;
+
+    border-bottom: 3px solid;
+    padding-bottom: 5px;
+}
+
+.content p {
+    color: rgb(211, 204, 204);
+}
+
+.label {
+    display: flex;
+    flex-direction: column;
+}
+
+.label input {
+    border-radius: 5px;
+
+    outline: none;
+    border: 1px solid gray;
+
+    padding-left: 5px;
+}
+
+.label input:focus {
+    border: 1px solid #0ECA98;
+}
+
+.label span {
+    position: relative;
+    left: 5px;
+}
+
+.submit {
+    cursor: pointer;
+    
+    height: 30px;
+    width: 9rem;
+
+    background-color: #0ECA98;
+
+    outline: none;
+    border-radius: 25px;
+    border: 1px solid;
+
+    font-size: 15px;
+}
+
+/* Aside */
+
+.aside_content {
+    background-color: #0ECA98;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    gap: 40px;
+
+    width: 40%;
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.aside_content h1 {
+    color: white;
+}
+
+.aside_content div div {
+    height: 4px;
+    width: 30px;
+    background-color: white;
+    border-radius: 4px;
+}
+
+.aside_content div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    gap: 5px;
+}
+
+.login {
+    height: 30px;
+    width: 9rem;
+
+    outline: none;
+    border-radius: 25px;
+
+    background-color: transparent;
+    border: 1px solid white;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+
+    font-size: 15px;
+}
