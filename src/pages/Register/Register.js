@@ -1,12 +1,12 @@
 import styles from "./Register.module.css"
 
 // firebase
-import { createUserWithEmailAndPassword } from "firebase/auth"
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { auth } from "../../firebase/firebase"
 
 // Hooks
 import { useNavigate } from "react-router-dom"
-import { useState } from "react"
+import { useState, useRef } from "react"
 
 import { useValidateNewUser } from "../../hooks/useValidateNewUser"
 
@@ -19,6 +19,15 @@ const Register = () => {
 
     const navigate = useNavigate()
 
+    const errorRef = useRef(null)
+    const [error, setError] = useState(null)
+
+    const setErrorInvisible = () => {
+
+        setTimeout(() => {
+            errorRef.current.style.display = "none"
+        }, 2000)
+    }
 
     const HandleSubmit = async(e) => {
         e.preventDefault()
@@ -26,12 +35,26 @@ const Register = () => {
        try {
         useValidateNewUser(userName, email, password, confirmPassword)
         await createUserWithEmailAndPassword(auth, email, password)
-                .then(newUser => newUser.user.displayName = userName)
+                .then(newUser => {
+                    updateProfile(newUser.user, {
+                        ...newUser,
+                        displayName: userName
+                    })
+                })
 
         navigate("/login")
 
        } catch (error) {
-        console.log(error)
+            if(error.message.includes("/")){
+                const errorMessage = error.message.split("/")[1].replace(')', "").split("-").join(" ")
+                setError(errorMessage)
+            }
+            else {
+                setError(error.message)
+            }
+
+            errorRef.current.style.display = "flex"
+            setErrorInvisible()
        }
     }
 
@@ -72,6 +95,8 @@ const Register = () => {
 
                     <button className={styles.submit} type="submit">Sign Up</button>
                 </form>
+
+                <div ref={errorRef} className={styles.error}>{error}</div>
                 
             </section>
             <aside className={styles.aside_content}>

@@ -7,19 +7,25 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 
 // Hooks
 import { useNavigate } from "react-router-dom"
-import { useState, useContext } from "react"
-
-// context
-import { UserContext } from "../../context/UserContext"
+import { useState, useRef } from "react"
 
 const Login = () => {
 
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
 
-    const { setUser } = useContext(UserContext)
+    const [error, setError] = useState(null)
+    const errorRef = useRef(null)
+
 
     const navigate = useNavigate()
+
+    const setErrorInvisible = () => {
+
+        setTimeout(() => {
+            errorRef.current.style.display = "none"
+        }, 2000)
+    }
 
 
     const handleSignUp = () => {
@@ -30,14 +36,17 @@ const Login = () => {
         e.preventDefault()
 
         try {
-            
             await signInWithEmailAndPassword(auth, email, password)
-                .then(res => setUser(res.user))
 
             navigate("/")
 
         } catch (error) {
-            console.log(error)
+
+            const errorMessage = error.message.split("/")[1].replace(')', "").split("-").join(" ")
+
+            setError(errorMessage)
+            errorRef.current.style.display = "flex"
+            setErrorInvisible()
         }
     }
 
@@ -65,6 +74,8 @@ const Login = () => {
 
                 <button className={styles.submit} type="submit">Sign In</button>
             </form>
+
+            <div ref={errorRef} className={styles.error}>{error}</div>
             
         </section>
         <aside className={styles.aside_content}>

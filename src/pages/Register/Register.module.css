@@ -177,6 +177,23 @@
     background-color: white;
 }
 
+.error {
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    /* height: 30px; */
+    width: 70%;
+    background-color: rgb(236, 143, 143);
+
+    border: none;
+    border-radius: 5px;
+
+    padding: 5px 5px 5px 9px;
+
+}
+
+
 @media (max-width: 625px) {
     .register {
         width: 90%;
