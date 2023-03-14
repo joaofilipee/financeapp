@@ -4,19 +4,23 @@ import styles from "./Home.module.css"
 import { auth } from "../../firebase/firebase"
 import { signOut } from "firebase/auth"
 
-// context
-import { useContext } from "react"
-import { UserContext } from "../../context/UserContext"
-
+// icons
+import { FiLogOut } from "react-icons/fi"
 
 const Home = () => {
 
-  // Current user
-  const { user } = useContext(UserContext)
-
   return (
     <div>
-      <h1 onClick={() => signOut(auth)}>Olá {user.displayName}</h1>
+
+      <header className={styles.header}>
+        <div className={styles.header_content}>
+          <h1 className={styles.home_title} >Hello, {auth.currentUser.displayName}!</h1>
+
+          <div className={styles.signout_btn} onClick={() => signOut(auth)}><FiLogOut /></div>
+        </div>
+      </header>
+
+
     </div>
   )
 }
