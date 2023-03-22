@@ -1,9 +1,5 @@
 import './App.css';
 
-// firebase
-import { auth } from './firebase/firebase';
-import { onAuthStateChanged } from 'firebase/auth';
-
 // Router
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 
@@ -16,6 +12,10 @@ import Register from './pages/Register/Register';
 import Login from './pages/Login/Login';
 import Home from './pages/Home/Home';
 
+// firebase
+import { onAuthStateChanged } from 'firebase/auth';
+import { auth } from './firebase/firebase';
+
 function App() {
 
   // User
@@ -23,13 +23,12 @@ function App() {
 
   onAuthStateChanged(auth, user => {
     if(user) {
-      setUser(user)
+      setUser(user.displayName)
     }
     else {
       setUser(null)
     }
   })
-
 
   return (
     <div className="App">

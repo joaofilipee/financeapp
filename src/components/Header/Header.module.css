@@ -1,0 +1,35 @@
+.header {
+    background-color: #018281;
+    width: 100%;
+    height: 100px;
+
+    padding: 1em 3em;
+}
+
+.home_title {
+    font-size: 30px;
+}
+
+.header_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signout_btn {
+    font-size: 28px;
+
+    display: flex;
+    align-items: center;
+}
+
+.signout_btn:hover {
+    cursor: pointer;
+}
+
+
+.control_finances {
+    color: white;
+    display: flex;
+    justify-content: center;
+}

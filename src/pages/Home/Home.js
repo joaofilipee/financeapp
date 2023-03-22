@@ -1,25 +1,30 @@
 import styles from "./Home.module.css"
 
-// firebase
-import { auth } from "../../firebase/firebase"
-import { signOut } from "firebase/auth"
+// components
+import Header from "../../components/Header/Header"
+import Values from "../../components/Values/Values"
+import Form from "../../components/Form/Form"
 
-// icons
-import { FiLogOut } from "react-icons/fi"
+// context provider
+import { ValuesContextProvider } from "../../context/ValuesContext"
 
 const Home = () => {
 
   return (
-    <div>
+    <div className={styles.main}>
 
-      <header className={styles.header}>
-        <div className={styles.header_content}>
-          <h1 className={styles.home_title} >Hello, {auth.currentUser.displayName}!</h1>
+      <Header />
 
-          <div className={styles.signout_btn} onClick={() => signOut(auth)}><FiLogOut /></div>
-        </div>
-      </header>
+      <main className={styles.datas}>
+          <ValuesContextProvider>
+            <div className={styles.components}>
+              <Values />
 
+              <Form />
+            </div>
+          </ValuesContextProvider>
+        
+      </main>
 
     </div>
   )

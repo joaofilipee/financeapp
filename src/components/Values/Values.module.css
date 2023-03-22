@@ -1,0 +1,52 @@
+.amounts {
+    display: flex;
+    gap: 1em;
+}
+
+.amount {
+    padding: 13px 1em;
+    border-radius: 3px;
+
+    background-color: white;
+    height: 90px;
+    width: 16rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    gap: 1em;
+}
+
+.amount div {
+    display: flex;
+    justify-content: space-around;
+
+    font-size: 1em;
+}
+
+.amount div:first-child {
+    align-items: center;
+}
+
+.type {
+    font-size: 19px;
+    opacity: 0.8;
+}
+
+.icon {
+    font-size: 25px;
+
+    display: flex;
+    align-items: center;
+}
+
+/* Mexer aqui */
+.total div {
+    
+}
+/* Mexer aqui */
+
+.value {
+    font-size: 25px;
+}

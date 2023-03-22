@@ -7,10 +7,16 @@ import { auth } from "../../firebase/firebase"
 // Hooks
 import { useNavigate } from "react-router-dom"
 import { useState, useRef } from "react"
+import { useContext } from "react"
 
 import { useValidateNewUser } from "../../hooks/useValidateNewUser"
 
+// context
+import { UserContext } from "../../context/UserContext"
+
 const Register = () => {
+
+    const { setUser } = useContext(UserContext)
 
     const [userName, setUserName] = useState("")
     const [email, setEmail] = useState("")
@@ -35,9 +41,10 @@ const Register = () => {
        try {
         useValidateNewUser(userName, email, password, confirmPassword)
         await createUserWithEmailAndPassword(auth, email, password)
-                .then(newUser => {
+                .then( newUser => {
+                    setUser(userName)
                     updateProfile(newUser.user, {
-                        ...newUser,
+                        ...newUser.user,
                         displayName: userName
                     })
                 })

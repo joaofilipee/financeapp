@@ -1,0 +1,25 @@
+.my_form {
+    display: flex;
+    justify-content: space-between;
+
+    background-color: white;
+    padding: 1.2em;
+
+    border-radius: 3px;
+}
+
+.type {
+    display: flex;
+    gap: 10px;
+}
+
+.type label {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+}
+
+.type label p {
+    position: relative;
+    top: 1.4px;
+}
