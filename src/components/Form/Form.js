@@ -10,7 +10,7 @@ const Form = () => {
 
         <label>
             <p>Amount</p>
-            <input type="number" />
+            <input type="text" />
         </label>
 
         <div className={styles.type}>
@@ -25,7 +25,7 @@ const Form = () => {
             </label>
         </div>
 
-        <button>Add</button>
+        <button className={styles.addBtn}>Add</button>
     </form>
   )
 }
