@@ -1,0 +1,25 @@
+.recipes {
+    padding: 0.7em;
+    background-color: white;
+
+    border-radius: 3px;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+
+.table_head {
+    border-bottom: 1px solid rgb(224, 221, 221);
+    height: 30px;
+}
+
+.table_head tr td {
+    font-weight: bold;
+}
+
+.tbody {
+    height: 3em;
+}
