@@ -5,78 +5,46 @@ import styles from "./Form.module.css"
 import { ValuesContext } from "../../context/ValuesContext"
 
 // hooks
-import { useContext, useState, useRef } from "react"
+import { useContext, useState, useRef, useEffect } from "react"
+import { useValidateTextInputField } from "../../hooks/useValidateTextInputField"
+import { useValidateNumberInputField } from "../../hooks/useValidateNumberInputField"
+import { useValidateRadioInputField } from "../../hooks/useValidateRadioInputField"
 
 const Form = () => {
     const [description, setDescription] = useState("")
     const [amount, setAmount] = useState("")
-    const [check, setCheck] = useState(null)
     const [recipeId, setRecipeId] = useState(1)
 
     const incomeRef = useRef(null)
     const expenseRef = useRef(null)
 
-    const { setRecipes } = useContext(ValuesContext)
+    const { recipes, setRecipes } = useContext(ValuesContext)
 
-    const handleSubmit = (e) => {
+    const HandleSubmit = (e) => {
         e.preventDefault()
 
+        const numberResult = useValidateNumberInputField(amount)
+        const textResult = useValidateTextInputField(description)
+        const radioResult = useValidateRadioInputField(incomeRef.current, expenseRef.current)
 
-        if(!validatingTextInputField()) {
-            return
-        }
-
-
-        if(incomeRef.current.checked){
-            setCheck(true)
-        }
-        else if(expenseRef.current.checked) {
-            setCheck(false)
-        }
-        else {
-            console.log("campo nn preenchido")
-            return
-        }
-
+        if(!textResult) return
+        if(!numberResult) return
+        if(!radioResult) return
+        
 
         setRecipes(actualState => {
-            console.log("adicionado")
-            return [...actualState, {id: recipeId, description, amount, type: check}]
+            console.log(recipes)
+            return [...actualState, {id: recipeId, description, amount, type: radioResult}]
         })
 
         setRecipeId(actualId => actualId+1)
         setDescription("")
         setAmount("")
-        setCheck(null)
     }
 
-    const validatingNumberInputField = (value) => {
-        if(value.includes("e")){
-            value = value.replace("e", "")
-        }
-
-        if(value.length > 17) {
-            return
-        }
-
-        setAmount(value)
-    }
-
-    const validatingTextInputField = () => {
-
-        if(description.length < 2){
-            alert("Min de 2 caracteres na descrição.")
-            return false
-        }
-        else if(description.length > 20){
-            alert("Max de 20 caracteres na descrição.")
-            return false
-        }
-
-    }
 
   return (
-    <form onSubmit={handleSubmit} className={styles.my_form}>
+    <form onSubmit={HandleSubmit} className={styles.my_form}>
         <label>
             <p>Description</p>
             <input type="text" value={description} onChange={(e) => setDescription(e.target.value)} />
@@ -84,7 +52,7 @@ const Form = () => {
 
         <label>
             <p>Amount</p>
-            <input type="number" value={amount} onChange={(e) => validatingNumberInputField(e.target.value)}/>
+            <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} />
         </label>
 
         <div className={styles.type}>
