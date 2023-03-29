@@ -1,14 +1,13 @@
 import styles from "./Form.module.css"
 
-
-// context
-import { ValuesContext } from "../../context/ValuesContext"
-
 // hooks
-import { useContext, useState, useRef, useEffect } from "react"
+import { useContext, useState, useRef } from "react"
 import { useValidateTextInputField } from "../../hooks/useValidateTextInputField"
 import { useValidateNumberInputField } from "../../hooks/useValidateNumberInputField"
 import { useValidateRadioInputField } from "../../hooks/useValidateRadioInputField"
+
+// context
+import { ValuesContext } from "../../context/ValuesContext"
 
 const Form = () => {
     const [description, setDescription] = useState("")
@@ -18,7 +17,7 @@ const Form = () => {
     const incomeRef = useRef(null)
     const expenseRef = useRef(null)
 
-    const { recipes, setRecipes } = useContext(ValuesContext)
+    const { setRecipes } = useContext(ValuesContext)
 
     const HandleSubmit = (e) => {
         e.preventDefault()
@@ -31,15 +30,16 @@ const Form = () => {
         if(!numberResult) return
         if(!radioResult) return
         
-
         setRecipes(actualState => {
-            console.log(recipes)
             return [...actualState, {id: recipeId, description, amount, type: radioResult}]
         })
 
         setRecipeId(actualId => actualId+1)
         setDescription("")
         setAmount("")
+
+        incomeRef.current.checked = false
+        expenseRef.current.checked = false
     }
 
 

@@ -4,13 +4,13 @@ import styles from "./Recipe.module.css"
 import { BsFillTrashFill } from "react-icons/bs"
 import { FiArrowUpCircle, FiArrowDownCircle } from "react-icons/fi"
 
-const Recipe = () => {
+const Recipe = ({id, description, amount, type}) => {
   return (
     <div className={styles.recipe}>
-      <p>Salário</p>
-      <p>10000000000000000</p>
+      <p>{description}</p>
+      <p>$ {amount}</p>
       <p className={styles.type}><FiArrowUpCircle /></p>
-      <p className={styles.trash}><BsFillTrashFill /></p>
+      <p><BsFillTrashFill className={styles.trash} /></p>
     </div>
   )
 }

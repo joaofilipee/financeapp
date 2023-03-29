@@ -27,7 +27,7 @@ const Recipes = () => {
         </p>
       </div>
       
-      <Recipe />
+      {recipes.map(recipe => <Recipe key={recipe.id} description={recipe.description} id={recipe.id} type={recipe.type} amount={recipe.amount} />)}
           
     </div>
   )
