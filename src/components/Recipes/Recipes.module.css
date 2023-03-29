@@ -3,23 +3,18 @@
     background-color: white;
 
     border-radius: 3px;
+    
 }
 
-.table {
-    width: 100%;
-    border-collapse: collapse;
+.header {
+    display: grid;
+    grid-template-columns: 4fr 4fr 1fr 1fr;
+
+    border-bottom: 1px solid rgb(216, 216, 216);
+    padding-bottom: 6px;
 }
 
 
-.table_head {
-    border-bottom: 1px solid rgb(224, 221, 221);
-    height: 30px;
-}
-
-.table_head tr td {
-    font-weight: bold;
-}
-
-.tbody {
-    height: 3em;
+.type {
+    justify-self: center;
 }
