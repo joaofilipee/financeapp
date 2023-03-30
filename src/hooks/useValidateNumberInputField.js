@@ -12,6 +12,11 @@ export const useValidateNumberInputField = (value) => {
         alert("Minimum of 1 character in number field.")
         return false
     }
+    else if(parseFloat(value) < 0){
+        alert("The value must be 0 or above.")
+        return false
+    }
 
     return true
 }
+

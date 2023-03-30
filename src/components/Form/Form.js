@@ -31,7 +31,7 @@ const Form = () => {
         if(!radioResult) return
         
         setRecipes(actualState => {
-            return [...actualState, {id: recipeId, description, amount, type: radioResult}]
+            return [...actualState, {id: recipeId, description, amount: parseFloat(amount), type: radioResult}]
         })
 
         setRecipeId(actualId => actualId+1)
