@@ -4,8 +4,8 @@ export const useValidateNumberInputField = (value) => {
         value = value.replace("e", "")
     }
 
-    if(value.length > 17) {
-        alert("Maximum of 17 characters in number field.")
+    if(value.length > 15) {
+        alert("Maximum of 15 characters in number field.")
         return false
     }
     else if(value.length < 1) {

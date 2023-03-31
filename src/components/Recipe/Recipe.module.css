@@ -13,3 +13,15 @@
 .type {
     justify-self: center;
 }
+
+.income {
+    color: green;
+}
+
+.expense {
+    color: #E61c3b;
+}
+
+.description::first-letter {
+    text-transform: capitalize;
+}
