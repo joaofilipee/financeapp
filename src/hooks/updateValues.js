@@ -1,5 +1,5 @@
 
-export const updateValues = (setIncomingParam, setExpenseParam, recipes) => {
+export const updateValues = (setIncomingParam, setExpenseParam, setTotalParam, recipes) => {
     let incomeValue = 0
     let expenseValue = 0
 
@@ -7,4 +7,5 @@ export const updateValues = (setIncomingParam, setExpenseParam, recipes) => {
 
     setIncomingParam(incomeValue)
     setExpenseParam(expenseValue)
+    setTotalParam(incomeValue - expenseValue)
 }

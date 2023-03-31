@@ -5,6 +5,7 @@ import { useContext, useState, useRef } from "react"
 import { useValidateTextInputField } from "../../hooks/useValidateTextInputField"
 import { useValidateNumberInputField } from "../../hooks/useValidateNumberInputField"
 import { useValidateRadioInputField } from "../../hooks/useValidateRadioInputField"
+import { updateValues } from "../../hooks/updateValues"
 
 // context
 import { ValuesContext } from "../../context/ValuesContext"
@@ -17,7 +18,7 @@ const Form = () => {
     const incomeRef = useRef(null)
     const expenseRef = useRef(null)
 
-    const { setRecipes } = useContext(ValuesContext)
+    const { setRecipes, setIncoming, setExpenses, setTotal } = useContext(ValuesContext)
 
     const HandleSubmit = (e) => {
         e.preventDefault()
@@ -31,7 +32,10 @@ const Form = () => {
         if(!radioResult) return
         
         setRecipes(actualState => {
-            return [...actualState, {id: recipeId, description, amount: parseFloat(amount), type: radioResult}]
+            const updatedRecipes = [...actualState, {id: recipeId, description, amount: parseFloat(amount), type: radioResult}]
+
+            updateValues(setIncoming, setExpenses, setTotal, updatedRecipes)
+            return updatedRecipes
         })
 
         setRecipeId(actualId => actualId+1)

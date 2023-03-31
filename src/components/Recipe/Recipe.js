@@ -13,13 +13,13 @@ import { ValuesContext } from "../../context/ValuesContext"
 
 const Recipe = ({id, description, amount, type}) => {
 
-  const { setRecipes, recipes, setIncoming, setExpenses } = useContext(ValuesContext)
+  const { setRecipes, recipes, setIncoming, setExpenses, setTotal } = useContext(ValuesContext)
   
   const deleteRecipe = (id) => {
     const updatedRecipes = recipes.filter(recipe => recipe.id !== id)
     setRecipes(updatedRecipes)
 
-    updateValues(setIncoming, setExpenses, updatedRecipes)
+    updateValues(setIncoming, setExpenses, setTotal, updatedRecipes)
   }
 
 
