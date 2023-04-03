@@ -23,13 +23,13 @@ const Form = () => {
     const HandleSubmit = (e) => {
         e.preventDefault()
 
-        const numberResult = useValidateNumberInputField(amount)
         const textResult = useValidateTextInputField(description)
+        const numberResult = useValidateNumberInputField(amount)
         const radioResult = useValidateRadioInputField(incomeRef.current, expenseRef.current)
 
-        if(!textResult) return
-        if(!numberResult) return
-        if(!radioResult) return
+        if(!textResult || !numberResult || !radioResult) {
+            return
+        }
         
         setRecipes(actualState => {
             const updatedRecipes = [...actualState, {id: recipeId, description, amount: parseFloat(amount), type: radioResult}]

@@ -25,7 +25,7 @@ const Values = () => {
 
             <div>
               <p className={styles.value}>
-                <strong>$ {incoming}</strong>
+                <strong>$ {incoming.toFixed(2)}</strong>
               </p>
             </div>
 
@@ -39,7 +39,7 @@ const Values = () => {
 
               <div>
                 <p className={styles.value}>
-                  <strong>$ {expenses}</strong>
+                  <strong>$ {expenses.toFixed(2)}</strong>
                 </p>
               </div>
           </div>
@@ -53,7 +53,7 @@ const Values = () => {
 
               <div>
                 <p className={styles.value}>
-                  <strong>$ {total}</strong>
+                  <strong>$ {total.toFixed(2)}</strong>
                 </p>
               </div>
 

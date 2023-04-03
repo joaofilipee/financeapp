@@ -1,6 +1,8 @@
 .amounts {
     display: flex;
     gap: 1em;
+
+    flex-wrap: wrap;
 }
 
 .amount {
@@ -48,5 +50,12 @@
 /* Mexer aqui */
 
 .value {
-    font-size: 25px;
+    font-size: 1.31em;
+}
+
+/* Responsivity */
+@media (max-width: 799px) {
+    .amounts {
+        
+    }
 }
