@@ -11,7 +11,7 @@
 
     background-color: white;
     height: 90px;
-    width: 16rem;
+    min-width: 16rem;
 
     display: flex;
     flex-direction: column;
@@ -54,8 +54,11 @@
 }
 
 /* Responsivity */
-@media (max-width: 799px) {
+@media (max-width: 527px) {
     .amounts {
-        
+        justify-content: center;
+    }
+    .amount {
+        width: 100%;
     }
 }

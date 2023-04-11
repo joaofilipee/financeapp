@@ -26,7 +26,7 @@ const Recipe = ({id, description, amount, type}) => {
   return (
     <div className={styles.recipe}>
       <p className={styles.description}>{description}</p>
-      <p>$ {amount.toFixed(2)}</p>
+      <p>{String(amount).length > 13 ? `$${amount}` : `$ ${amount}`}</p>
       <p className={styles.type}>{type === "income" ? <FiArrowUpCircle className={styles.income} /> : <FiArrowDownCircle className={styles.expense} />}</p>
       <p><BsFillTrashFill className={styles.trash} onClick={() => deleteRecipe(id)}/></p>
     </div>

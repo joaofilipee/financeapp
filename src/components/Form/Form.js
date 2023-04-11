@@ -69,9 +69,10 @@ const Form = () => {
                 <input type="radio" name="type" ref={expenseRef}/>
                 <p>Expense</p>
             </label>
-        </div>
 
+        </div>
         <button className={styles.addBtn}>Add</button>
+
     </form>
   )
 }

@@ -30,6 +30,7 @@
 .type {
     display: flex;
     gap: 10px;
+    flex-wrap: wrap;
 }
 
 .type label {
@@ -73,8 +74,8 @@
     }
 }
 
-@media (max-width: 527px) {
+@media (max-width: 344px) {
     .my_form {
-        /* margin-bottom: 10em; */
+        margin-bottom: 3em;
     }
 }

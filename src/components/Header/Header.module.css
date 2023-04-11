@@ -33,3 +33,17 @@
     display: flex;
     justify-content: center;
 }
+
+/* Responsivity */
+
+@media (max-width: 710px) {
+    .control_finances {
+        margin-top: 1em;
+    }
+}
+
+@media (max-width: 315px) {
+    .control_finances {
+        display: none;
+    }
+}
