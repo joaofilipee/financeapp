@@ -6,7 +6,7 @@ import { signInWithEmailAndPassword } from "firebase/auth"
 
 
 // Hooks
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 
 // context 
@@ -80,6 +80,10 @@ const Login = () => {
                 </label>
 
                 <button className={styles.submit} type="submit">Sign In</button>
+
+                <p className={styles.alternative_register}>
+                    <span>Don't have an account?</span> <Link to="/register">Click here</Link>
+                </p>
             </form>
 
             <div ref={errorRef} className={styles.error}>{error}</div>

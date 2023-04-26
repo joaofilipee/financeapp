@@ -176,6 +176,20 @@
     background-color: white;
 }
 
+.alternative_register {
+    display: none;
+    position: relative;
+    top: 1em;
+}
+
+.alternative_register span{
+    color: #333232;
+}
+
+.alternative_register a {
+    text-decoration: none;
+}
+
 .error {
     display: none;
     justify-content: center;
@@ -222,6 +236,21 @@
 
     .label input {
         width: 100%;
+    }
+}
+
+@media (max-width: 407px) {
+    .aside_content {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .alternative_register {
+        display: block;
     }
 }
 
