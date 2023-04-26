@@ -44,7 +44,7 @@ Here are the technologies I used in this project.
 
 ![Register Page](https://github.com/joaofilipee/financeapp/blob/main/public/readme/signUp.png)
 
-### 3 - When you have created your account you will be redirected to the home page.
+### 3 - When you have created your account and signed in you will be redirected to the home page.
 
 ![Home Page](https://github.com/joaofilipee/financeapp/blob/main/public/readme/home.png)
 ### 4 - Enjoy it. :D
