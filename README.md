@@ -40,8 +40,7 @@ Here are the technologies I used in this project.
 
 ![Login Page](https://github.com/joaofilipee/financeapp/blob/main/public/readme/signIn.png)
 
-### 2 - If you don't have an account, you can create yours, you just have to click on the Sign Up button in login page. This is <br />
-the register page.
+### 2 - If you don't have an account, you can create yours, you just have to click on the Sign Up button in login page. This is the register page.
 
 ![Register Page](https://github.com/joaofilipee/financeapp/blob/main/public/readme/signUp.png)
 
