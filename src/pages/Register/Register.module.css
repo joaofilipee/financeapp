@@ -177,6 +177,20 @@
     background-color: white;
 }
 
+.alternative_login {
+    display: none;
+    position: relative;
+    top: 1em;
+}
+
+.alternative_login span {
+    color: #333232;
+}
+
+.alternative_login a {
+    text-decoration: none;
+}
+
 .error {
     display: none;
     justify-content: center;
@@ -224,6 +238,21 @@
 @media (max-width: 435px) {
     .label input {
         width: 200px;
+    }
+}
+
+@media (max-width: 407px) {
+    .aside_content {
+        display: none;
+    }
+
+    .content {
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .alternative_login {
+        display: block;
     }
 }
 

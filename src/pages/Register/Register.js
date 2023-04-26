@@ -5,7 +5,7 @@ import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth"
 import { auth } from "../../firebase/firebase"
 
 // Hooks
-import { useNavigate } from "react-router-dom"
+import { useNavigate, Link } from "react-router-dom"
 import { useState, useRef } from "react"
 import { useContext } from "react"
 
@@ -101,6 +101,9 @@ const Register = () => {
                     </label>
 
                     <button className={styles.submit} type="submit">Sign Up</button>
+
+                    <p className={styles.alternative_login}>
+                    <span>Already have an account?</span> <Link to="/login">Click here</Link></p>
                 </form>
 
                 <div ref={errorRef} className={styles.error}>{error}</div>
