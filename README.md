@@ -3,7 +3,7 @@
 # Finance App
 Control your finances. 
 <br /> <br />
-In this app you can add a financial recipe and remove it, it's value updates every change you do <br />
+In this app you can add a financial income/expense and remove it, it's value updates every change you do <br />
 in the app.
 
 
@@ -52,8 +52,8 @@ Here are the technologies I used in this project.
 ## Features
 
 The main features of the application are:
- - You can add financial recipes.
- - You can remove financial recipes
+ - You can add financial incomes/expenses.
+ - You can remove financial incomes/expenses.
  - It will update every change you do in the website.
 
 ## Links
